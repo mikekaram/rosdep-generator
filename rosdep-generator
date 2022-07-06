@@ -2,7 +2,7 @@
 
 import argparse
 import os
-import urllib2
+import urllib.request
 import yaml
 
 parser = argparse.ArgumentParser(description="Generate rosdep key mapping so that bloom can resolve dependencies for an overlaid rosdistro.")
@@ -19,7 +19,7 @@ else:
           (args.org, args.repo, args.distro)
 
 print("Downloading: %s" % url)
-response = urllib2.urlopen(url)
+response = urllib.request.urlopen(url)
 response_text = response.read()
 print("Parsing %d bytes of yaml." % len(response_text))
 distribution = yaml.safe_load(response_text)
