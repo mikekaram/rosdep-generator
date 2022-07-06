@@ -27,7 +27,7 @@ distribution = yaml.safe_load(response_text)
 print("Extracting package names.")
 platforms = distribution['release_platforms'].keys()
 packages = set()
-for name, meta in distribution['repositories'].iteritems():
+for name, meta in distribution['repositories'].items():
     if 'release' in meta:
         if 'packages' in meta['release']:
             packages.update(meta['release']['packages'])
